@@ -4,11 +4,9 @@
 
 ```CQU 教务处
 v1.0: 快速选择课程, 经过测试 可以提交必修
-```
 
-~~~CQU 教务处
 v2.0:重写文件 增加了并行提交，但未经过测试
-~~~
+```
 
 **使用方法:`在info/preference.json填入希望选择到的课程 老师, 在info/user.json中填入自己的学号和密码`**
 
@@ -36,3 +34,4 @@ v2.0:重写文件 增加了并行提交，但未经过测试
 
 [maxoyed](https://github.com/maxoyed/cqu_jwc)
 
+*@[Luxru](http://luxru.top)*
