@@ -8,10 +8,7 @@ from bs4 import BeautifulSoup
 #如果没有选老师或者没有名额的话会随机选择一位老师
 #空即意味着随机
 #btx->必修 ts->通识 eng->英语扩展
-#英语拓展与必修唯一不同的地方是请求的表单中多了一个kclb3: 60 是从check哪里开始
-#而通识课的不同则是请求的地址不同外加有验证码:http://202.202.1.41/wsxk/ValidateCode.aspx这里是验证码的地址 其他完全一致(从check开始)
 #目前只可以选择必修,英语扩展
-#现在出现的问题:None
 
 preference ={
     "btx": {
