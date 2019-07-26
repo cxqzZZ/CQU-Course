@@ -1,0 +1,13 @@
+{
+    "ts": "/wsxk/stu_whszk.aspx",
+    "eng": "/wsxk/stu_yytgk_bx.aspx",
+    "btx": "/wsxk/stu_btx.aspx",
+    "checkbtx": "/wsxk/stu_btx_rpt.aspx",
+    "checkeng": "/wsxk/stu_btx_rpt.aspx",
+    "checkts":"/wsxk/stu_xszx_rpt.aspx",
+    "submitbtx": "/wsxk/stu_btx_rpt.aspx?func=1&",
+    "submiteng": "/wsxk/stu_btx_rpt.aspx?func=1&",
+    "submitts":"/wsxk/stu_xszx_rpt.aspx?func=1&",
+    "skbj": "/wsxk/stu_xszx_skbj.aspx",
+    "selspecail":"/WSXK/Private/List_WSXK_NJZY.aspx?id=0&xklb=2"
+}
