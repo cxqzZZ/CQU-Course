@@ -25,7 +25,7 @@ class multiThread(object):
         self.path = path
         self.session = session
         self.threadID = []
-        self.tasks = ["btx", "ts", "eng"]
         self.preference = json.load(open(path + '/info/preference.json', 'r', encoding='utf-8'))
+        self.tasks = json.load(open(path + '/info/user.json', 'r', encoding='utf-8'))["tasks"]
         self.login = LG(self.session, self.path)
         self.mainThread()

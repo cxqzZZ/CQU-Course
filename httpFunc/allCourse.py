@@ -1,19 +1,15 @@
 import json
 from PIL import Image
 from bs4 import BeautifulSoup
-
-if __name__ == "__main__":
-    from CquRequest import CquRequest as CR
-else:
-    from httpFunc.CquRequest import CquRequest as CR
+from httpFunc.CquRequest import CquRequest as CR
 
 
 class allCourse(object):
     def getCaptcha(self):
         res = self.http.get(self.path["tsCaptcha"])
-        with open("./img.gif", "wb+") as fp:
+        with open("./info/img.gif", "wb+") as fp:
             fp.write(res.content)
-        img = Image.open('./img.gif')
+        img = Image.open('./info/img.gif')
         img.show()
         self.captcha = input("请输入验证码\n")
         print(self.captcha)
