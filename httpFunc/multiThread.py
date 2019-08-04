@@ -1,34 +1,31 @@
 import json
 import threading
-if __name__ == "__main__":
-    from loginAndGetInfo import login as LG
-    from submitOneCourse import submitOne as SO
-    from allCourse import allCourse as AC
-else:
-    from httpFunc.loginAndGetInfo import login as LG
-    from httpFunc.submitOneCourse import submitOne as SO
-    from httpFunc.allCourse import allCourse as AC
+from httpFunc.loginAndGetInfo import login as LG
+from httpFunc.submitOneCourse import submitOne as SO
+from httpFunc.allCourse import allCourse as AC
 
 
 class multiThread(object):
     def mainThread(self):
-        self.login = LG(self.session, self.path)
-        self.allCourse = AC(self.session, self.login.selspecial, path=self.path)
-        self.courseList = self.allCourse.courseList
+        for x in self.tasks:
+            m = threading.Thread(target=self.multiThread, args=(x,))
+            m.start()
 
-    def multiThread(self):
-        self.threadID = []
-        for x in self.course:
-            print("课程:{} 教师:{}".format(x, self.course[x]))
-            multi = threading.Thread(target=SO, args=(self.session, self.courseList, x, self.course[x]))
+    def multiThread(self, classes="btx"):
+        course = self.preference[classes]
+        allCourse = AC(self.session, self.login.selspecial, classes=classes, path=self.path)
+        courseList = allCourse.courseList
+        for x in course:
+            print("课程:{} 教师:{}".format(x, course[x]))
+            multi = threading.Thread(target=SO, args=(self.session, courseList, x, course[x]))
             multi.start()
             self.threadID.append(multi)
 
-    def __init__(self, session, classes="btx", path="."):
+    def __init__(self, session, path="."):
         self.path = path
         self.session = session
-        self.classes = classes
-        self.preference = json.load(open(path+'/info/preference.json', 'r', encoding='utf-8'))
-        self.course = self.preference[self.classes]
+        self.threadID = []
+        self.tasks = ["btx", "ts", "eng"]
+        self.preference = json.load(open(path + '/info/preference.json', 'r', encoding='utf-8'))
+        self.login = LG(self.session, self.path)
         self.mainThread()
-        self.multiThread()
