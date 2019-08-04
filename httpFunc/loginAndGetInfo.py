@@ -58,8 +58,12 @@ class login(object):
         print("正在登录……")
         res = self.session.post(self.url+'/_data/index_login.aspx', data=form, headers=self.headers)
         # 失败重试
-        if res.status_code != 200:
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup(res.text, "html.parser")
+        x = soup.find_all(text=re.compile(r".*登录失败.*"), limit=1)
+        if res.status_code != 200 or len(x) > 0:
             print("登陆失败，正在重试，请检查账户密码及服务器可用性")
+            print(x)
             self.wait_time()
             self.changeServer()
             self.login()

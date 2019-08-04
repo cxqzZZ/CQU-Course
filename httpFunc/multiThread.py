@@ -10,19 +10,19 @@ else:
     from httpFunc.allCourse import allCourse as AC
 
 
-class mutiThread(object):
-    def singleThread(self):
+class multiThread(object):
+    def mainThread(self):
         self.login = LG(self.session, self.path)
         self.allCourse = AC(self.session, self.login.selspecial, path=self.path)
         self.courseList = self.allCourse.courseList
 
-    def mutiThread(self):
+    def multiThread(self):
         self.threadID = []
         for x in self.course:
             print("课程:{} 教师:{}".format(x, self.course[x]))
-        muti = threading.Thread(target=SO, args=(self.session, self.courseList, x, self.course[x]))
-        muti.start()
-        self.threadID.append(muti)
+            multi = threading.Thread(target=SO, args=(self.session, self.courseList, x, self.course[x]))
+            multi.start()
+            self.threadID.append(multi)
 
     def __init__(self, session, classes="btx", path="."):
         self.path = path
@@ -30,6 +30,5 @@ class mutiThread(object):
         self.classes = classes
         self.preference = json.load(open(path+'/info/preference.json', 'r', encoding='utf-8'))
         self.course = self.preference[self.classes]
-        self.singleThread()
-        self.mutiThread()
-# now to do 完成多线程
+        self.mainThread()
+        self.multiThread()
