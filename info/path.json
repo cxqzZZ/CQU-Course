@@ -9,5 +9,7 @@
     "submiteng": "/wsxk/stu_btx_rpt.aspx?func=1&",
     "submitts":"/wsxk/stu_xszx_rpt.aspx?func=1&",
     "skbj": "/wsxk/stu_xszx_skbj.aspx",
-    "selspecail":"/WSXK/Private/List_WSXK_NJZY.aspx?id=0&xklb=2"
+    "selspecail":"/WSXK/Private/List_WSXK_NJZY.aspx?id=0&xklb=2",
+    "loginCaptcha":"/sys/ValidateCode.aspx",
+    "tsCaptcha":"/wsxk/ValidateCode.aspx"
 }
