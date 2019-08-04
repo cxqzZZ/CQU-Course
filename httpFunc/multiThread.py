@@ -11,7 +11,7 @@ else:
 
 
 class multiThread(object):
-    def singleThread(self):
+    def mainThread(self):
         self.login = LG(self.session, self.path)
         self.allCourse = AC(self.session, self.login.selspecial, path=self.path)
         self.courseList = self.allCourse.courseList
@@ -30,6 +30,5 @@ class multiThread(object):
         self.classes = classes
         self.preference = json.load(open(path+'/info/preference.json', 'r', encoding='utf-8'))
         self.course = self.preference[self.classes]
-        self.singleThread()
+        self.mainThread()
         self.multiThread()
-# now to do 完成多线程
