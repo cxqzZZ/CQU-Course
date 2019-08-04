@@ -1,4 +1,5 @@
 import json
+from PIL import Image
 from bs4 import BeautifulSoup
 
 if __name__ == "__main__":
@@ -8,6 +9,15 @@ else:
 
 
 class allCourse(object):
+    def getCaptcha(self):
+        res = self.http.get(self.path["tsCaptcha"])
+        with open("./img.gif", "wb+") as fp:
+            fp.write(res.content)
+        img = Image.open('./img.gif')
+        img.show()
+        self.captcha = input("请输入验证码\n")
+        print(self.captcha)
+
     def search(self):
         # 检索老师
         search_data = {
@@ -28,13 +38,14 @@ class allCourse(object):
                 'SelSpeciality': self.selspecial,
                 'sel_xq': '4',
                 'chk_kyme': '1',
-                'txt_yzm': '',
+                'txt_yzm': self.captcha,
                 'sel_lx': '4',
                 'kclb3': '',
                 'Submit': '%BC%EC%CB%F7',
             }
         }
-
+        if self.classes == "ts":
+            self.getCaptcha()
         while True:
             res = self.http.post(self.path['check{}'.format(self.classes)], search_data[self.classes])
             if (res.status_code != 200):
