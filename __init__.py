@@ -1,6 +1,6 @@
 import os
 import requests
-from httpFunc.mutiThread import mutiThread as MT
+from httpFunc.multiThread import multiThread as MT
 
 
 class CQUCourse(object):
