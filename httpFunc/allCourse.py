@@ -20,6 +20,10 @@ class allCourse(object):
 
     def search(self):
         # 检索老师
+        if self.classes == "ts":
+            self.getCaptcha()
+        else:
+            self.captcha = None
         search_data = {
             "btx": {
                 'sel_lx': '0',
@@ -44,8 +48,6 @@ class allCourse(object):
                 'Submit': '%BC%EC%CB%F7',
             }
         }
-        if self.classes == "ts":
-            self.getCaptcha()
         while True:
             res = self.http.post(self.path['check{}'.format(self.classes)], search_data[self.classes])
             if (res.status_code != 200):
