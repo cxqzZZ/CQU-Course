@@ -114,10 +114,9 @@ class login(object):
         return True
 
     def __init__(self, session, path=".", *args, **kwargs):
-        self.path = path
-        self.user = json.load(open(self.path+'/info/user.json', 'r', encoding='utf-8'))
-        self.serverurl = json.load(open(self.path+'/info/serverurl.json', 'r', encoding='utf-8'))
-        self.path = json.load(open(self.path+'/info/path.json', 'r', encoding='utf-8'))
+        self.user = json.load(open(path+'/info/user.json', 'r', encoding='utf-8'))
+        self.serverurl = json.load(open(path+'/info/serverurl.json', 'r', encoding='utf-8'))
+        self.path = json.load(open(path+'/info/path.json', 'r', encoding='utf-8'))
         self.username = self.user["name"]
         self.password = self.user["password"]
         self.vsg = self.serverurl["vsg"]

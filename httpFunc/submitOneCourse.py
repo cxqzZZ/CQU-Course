@@ -267,7 +267,6 @@ class submitOne(object):
             print("成功:{}|{}".format(x["subjetc"], x["teacher"]))
 
     def __init__(self, session, courseList, oneCourse, teacherList, path=".", classes="btx"):
-        self.path = path
         self.courseList = courseList
         self.course = oneCourse
         self.list = teacherList
@@ -276,7 +275,7 @@ class submitOne(object):
         self.failedList = []
         self.url = json.load(open(path+'/info/serverurl.json', 'r', encoding='utf-8'))
         self.path = json.load(open(path+'/info/path.json', 'r', encoding='utf-8'))
-        self.http = CR(self.session)
+        self.http = CR(self.session, path)
         self.query()
         self.chose()
         self.getAllCode()

@@ -66,6 +66,6 @@ class allCourse(object):
         self.selspecial = selspecial
         self.session = session
         self.classes = classes
-        self.http = CR(self.session)
+        self.http = CR(self.session,path)
         self.path = json.load(open(path+'/info/path.json', 'r', encoding='utf-8'))
         self.search()
