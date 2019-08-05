@@ -1,4 +1,5 @@
 # CQU-Course
+![Language](https://img.shields.io/badge/Language-Python3-red.svg) ![License](https://img.shields.io/badge/License-GPL--3.0-yellow.svg)
 
 ` update: `
 
@@ -9,16 +10,20 @@ v2.0:重写文件 增加了并行提交，但未经过测试
 
 v2.1:添加了选择通识课的功能，但未经过测试
 ```
+**注意：如果重复提交之前已经选择到的课程，之前选择到的课程则会被退选**
 
 **使用方法:`在info/preference.json填入希望选择到的课程 老师, 在info/user.json中填入自己的学号和密码`**
 
 **这个程序是通过查询课程&老师 ID后直接向服务器提交表单已实现更快的完成选课的操作**
 
-------
-
+## 说明
 *v2还未经过测试*
-
-~~目前经过测验的可以选择:~~
+| 课程种类 |   说明   |  
+| :---: | :------------: | 
+|  btx   |   必修    |    
+|    ts  |  通识   |    
+|  eng |     英语   |     
+目前经过测验的可以选择:
 
 - `正选`
 
@@ -36,6 +41,4 @@ v2.1:添加了选择通识课的功能，但未经过测试
 
 <<<<<<< HEAD
 *@[Luxru](http://luxru.top)*
-=======
-*@[Luxru](http://luxru.top)*
->>>>>>> b83e58a9ee9ed5108cf43db62f4a81fdfa1888f6
+
