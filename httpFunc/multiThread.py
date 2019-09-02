@@ -15,9 +15,10 @@ class multiThread(object):
         course = self.preference[classes]
         allCourse = AC(self.session, self.login.selspecial, classes=classes, path=self.path)
         courseList = allCourse.courseList
+        selspecial = allCourse.selspecial
         for x in course:
             print("课程:{} 教师:{}".format(x, course[x]))
-            multi = threading.Thread(target=SO, args=(self.session, courseList, x, course[x]))
+            multi = threading.Thread(target=SO, args=(self.session, courseList, selspecial, x, course[x]))
             multi.start()
             self.threadID.append(multi)
 

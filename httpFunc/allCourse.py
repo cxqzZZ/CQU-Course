@@ -60,6 +60,7 @@ class allCourse(object):
                     import sys
                     sys.exit()
             self.courseList = soup
+            break
 
     def __init__(self, session, selspecial, classes="btx", path="."):
         # ->self.coursesList

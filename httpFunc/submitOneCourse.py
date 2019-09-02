@@ -123,6 +123,7 @@ class submitOne(object):
                     continue
             self.data = data
             self.teacher = teacher
+            break
         # teacher[]->教授科目 (name)教师的组 教师的名字 教师的代码
 
     def transform(self, x, y):
@@ -194,8 +195,8 @@ class submitOne(object):
                 print("已选课程：{} 任课教师：{}".format(x["subject"], x["teacher"]))
 
             for x in range(0, self.mcount):
-                form_data["chkSKBJ{}".format(x)] = self.info[x]["chkSKBJ"]
-                form_data["kcxf{}".format(x)] = self.info[x]["credit"]
+                form_data["chkSKBJ{}".format(x)] = self.infos[x]["chkSKBJ"]
+                form_data["kcxf{}".format(x)] = self.infos[x]["credit"]
 
             for da in self.data:
                 flag = True
@@ -266,8 +267,9 @@ class submitOne(object):
         for x in self.submitCode:
             print("成功:{}|{}".format(x["subjetc"], x["teacher"]))
 
-    def __init__(self, session, courseList, oneCourse, teacherList, path=".", classes="btx"):
+    def __init__(self, session, courseList, selspecial, oneCourse, teacherList, path=".", classes="btx"):
         self.courseList = courseList
+        self.selspecial = selspecial
         self.course = oneCourse
         self.list = teacherList
         self.session = session
@@ -276,8 +278,8 @@ class submitOne(object):
         self.url = json.load(open(path+'/info/serverurl.json', 'r', encoding='utf-8'))
         self.path = json.load(open(path+'/info/path.json', 'r', encoding='utf-8'))
         self.http = CR(self.session, path)
-        self.query()
         self.chose()
+        self.query()
         self.getAllCode()
         self.getSubmitCode()
         self.submit()
