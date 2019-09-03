@@ -265,7 +265,7 @@ class submitOne(object):
                 else:
                     flags = False
         for x in self.submitCode:
-            print("成功:{}|{}".format(x["subjetc"], x["teacher"]))
+            print("成功:{}|{}".format(x["subject"], x["teacher"]))
 
     def __init__(self, session, courseList, selspecial, oneCourse, teacherList, path=".", classes="btx"):
         self.courseList = courseList
